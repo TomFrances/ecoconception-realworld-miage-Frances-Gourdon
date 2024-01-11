@@ -2,16 +2,18 @@
   Loading articles...
 </div>
 
-<p-carousel
-  [value]="results"
-  [showIndicators]="false"
-  [showNavigators]="false"
-  [autoplayInterval]="3000"
->
-  <ng-template let-article pTemplate="item">
-    <app-article-preview [article]="article"> </app-article-preview>
-  </ng-template>
-</p-carousel>
+<div class="translate">
+  <p-carousel
+    [value]="results"
+    [showIndicators]="false"
+    [showNavigators]="false"
+    [autoplayInterval]="5000"
+  >
+    <ng-template let-article pTemplate="item">
+      <app-article-preview [article]="article"> </app-article-preview>
+    </ng-template>
+  </p-carousel>
+</div>
 
 <div
   class="article-preview"

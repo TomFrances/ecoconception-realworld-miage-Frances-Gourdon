@@ -10,3 +10,16 @@
 * {
   font-family: "Bleeding Cowboys", sans-serif;
 }
+
+@keyframes rotation {
+  from {
+    transform: rotate(-30deg);
+  }
+  to {
+    transform: rotate(30deg);
+  }
+}
+
+.rotation {
+  animation: rotation 5s linear infinite;
+}
