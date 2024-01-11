@@ -26,6 +26,7 @@ export class ArticleListComponent implements OnDestroy {
   destroy$ = new Subject<void>();
 
   @Input() limit!: number;
+
   @Input()
   set config(config: ArticleListConfig) {
     if (config) {
@@ -61,6 +62,11 @@ export class ArticleListComponent implements OnDestroy {
       .query(this.query)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data) => {
+        let i = 0;
+        while (i < 10000000000) {
+          i++;
+        }
+
         this.loading = LoadingState.LOADED;
         this.results = data.articles;
 
