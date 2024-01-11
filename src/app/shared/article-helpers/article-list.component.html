@@ -1,9 +1,17 @@
-<app-article-preview *ngFor="let article of results" [article]="article">
-</app-article-preview>
-
 <div class="article-preview" *ngIf="loading === LoadingState.LOADING">
   Loading articles...
 </div>
+
+<p-carousel
+  [value]="results"
+  [showIndicators]="false"
+  [showNavigators]="false"
+  [autoplayInterval]="3000"
+>
+  <ng-template let-article pTemplate="item">
+    <app-article-preview [article]="article"> </app-article-preview>
+  </ng-template>
+</p-carousel>
 
 <div
   class="article-preview"

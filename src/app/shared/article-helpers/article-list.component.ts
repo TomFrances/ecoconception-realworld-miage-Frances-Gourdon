@@ -7,12 +7,13 @@ import { NgClass, NgForOf, NgIf } from "@angular/common";
 import { LoadingState } from "../../core/models/loading-state.model";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
+import { CarouselModule } from "primeng/carousel";
 
 @Component({
   selector: "app-article-list",
   styleUrls: ["article-list.component.css"],
   templateUrl: "./article-list.component.html",
-  imports: [ArticlePreviewComponent, NgForOf, NgClass, NgIf],
+  imports: [ArticlePreviewComponent, NgForOf, NgClass, NgIf, CarouselModule],
   standalone: true,
 })
 export class ArticleListComponent implements OnDestroy {
