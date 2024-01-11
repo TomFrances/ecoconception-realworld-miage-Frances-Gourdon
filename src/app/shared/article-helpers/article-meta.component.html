@@ -1,7 +1,9 @@
 <div class="article-meta">
   <a [routerLink]="['/profile', article.author.username]">
     <img
+      id="our_img"
       [src]="'../../../assets/weird_gif.gif'"
+      (mouseover)="playSound()"
       style="width: 100px; height: 100px"
     />
   </a>

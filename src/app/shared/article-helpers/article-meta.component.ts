@@ -12,4 +12,11 @@ import { DatePipe } from "@angular/common";
 })
 export class ArticleMetaComponent {
   @Input() article!: Article;
+  private audio = new Audio();
+
+  playSound() {
+    this.audio.src = "/assets/turkey.mp3";
+    this.audio.load();
+    this.audio.play();
+  }
 }
