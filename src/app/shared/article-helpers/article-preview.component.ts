@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Article } from "../../core/models/article.model";
 import { ArticleMetaComponent } from "./article-meta.component";
 import { FavoriteButtonComponent } from "../buttons/favorite-button.component";

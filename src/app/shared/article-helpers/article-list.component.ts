@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { ArticlesService } from "../../core/services/articles.service";
 import { ArticleListConfig } from "../../core/models/article-list-config.model";
 import { Article } from "../../core/models/article.model";
@@ -8,6 +8,7 @@ import { LoadingState } from "../../core/models/loading-state.model";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { CarouselModule } from "primeng/carousel";
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-article-list",
@@ -16,7 +17,7 @@ import { CarouselModule } from "primeng/carousel";
   imports: [ArticlePreviewComponent, NgForOf, NgClass, NgIf, CarouselModule],
   standalone: true,
 })
-export class ArticleListComponent implements OnDestroy {
+export class ArticleListComponent implements OnDestroy, OnInit {
   query!: ArticleListConfig;
   results: Article[] = [];
   currentPage = 1;
@@ -36,7 +37,11 @@ export class ArticleListComponent implements OnDestroy {
     }
   }
 
-  constructor(private articlesService: ArticlesService) {}
+  constructor(private articlesService: ArticlesService, private title: Title) {}
+
+  ngOnInit() {
+    this.title.setTitle("My Fat Turkey");
+  }
 
   ngOnDestroy() {
     this.destroy$.next();

@@ -80,6 +80,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
         this.comments = comments;
         this.currentUser = currentUser;
         this.canModify = currentUser?.username === article.author.username;
+        this.article.title =
+          this.pickRandomWords(this.article.body) + " turkey";
       });
   }
 
@@ -144,5 +146,19 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   trackById(index: number, item: Comment): string {
     return item.id;
+  }
+
+  pickRandomWords(text: string): string {
+    const words = text.split(/\s+/);
+
+    for (let i = words.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [words[i], words[j]] = [words[j], words[i]];
+    }
+
+    const randomWords = words.slice(0, 3);
+
+    console.log(randomWords);
+    return randomWords.join(" ");
   }
 }
